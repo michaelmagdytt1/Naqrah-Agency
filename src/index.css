@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+    background-color: #F7F4F2;
+    color: #1E1113;
+    overflow-x: hidden;
+  }
+}
