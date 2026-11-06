@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -8,6 +9,30 @@ import PartnerStats from './components/PartnerStats';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+
+function DynamicSEO() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/about') {
+      document.title = 'من نحن وسابقة أعمالنا | نَقْرَة للحلول الرقمية NAQRAH';
+    } else if (location.pathname === '/contact') {
+      document.title = 'تواصل معنا واطلب خدمتك | نَقْرَة للحلول الرقمية NAQRAH';
+    } else {
+      document.title = 'نَقْرَة للحلول الرقمية | NAQRAH - تسويق رقمي وتطوير مواقع وإنتاج ريلز';
+    }
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.setAttribute(
+        'href',
+        `https://naqrah-agency-ten.vercel.app${location.pathname === '/' ? '/' : location.pathname}`
+      );
+    }
+  }, [location]);
+
+  return null;
+}
 
 function HomePage() {
   return (
@@ -40,6 +65,7 @@ function ContactPage() {
 function App() {
   return (
     <Router>
+      <DynamicSEO />
       <div className="min-h-screen bg-oqab-cream text-[#1E1113] flex flex-col justify-between">
         <Navbar />
         <main className="flex-grow">
@@ -50,7 +76,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        {/* أداة تتبع الزوار من Vercel */}
         <Analytics />
       </div>
     </Router>

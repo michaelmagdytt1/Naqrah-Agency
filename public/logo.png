@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="maroonBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7A112E" />
+      <stop offset="50%" stop-color="#5E0B22" />
+      <stop offset="100%" stop-color="#3D0615" />
+    </linearGradient>
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3D79B" />
+      <stop offset="50%" stop-color="#D9B372" />
+      <stop offset="100%" stop-color="#C69C54" />
+    </linearGradient>
+  </defs>
+  <rect width="92" height="92" x="4" y="4" rx="26" fill="url(#maroonBg)" stroke="url(#goldBorder)" stroke-width="6" />
+  <circle cx="50" cy="50" r="34" fill="none" stroke="url(#goldBorder)" stroke-width="1.5" stroke-opacity="0.4" />
+  <text x="50" y="68" font-family="Arial, sans-serif" font-size="54" font-weight="bold" fill="url(#goldBorder)" text-anchor="middle">ن</text>
+</svg>
